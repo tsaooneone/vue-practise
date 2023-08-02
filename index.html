@@ -22,9 +22,9 @@
             <my-page1 v-if="whichPage === 'Page1'"></my-page1>
             <my-page2 v-if="whichPage === 'Page2'"></my-page2>
             <my-page3 v-if="whichPage === 'Page3'"></my-page3> -->
-            
+
             <!-- 寫法2 -->
-            <component :is="whichPageComponent"></component>
+            <component :is="whichPageComponent" :parent-message="message"></component>
         </div>
         
     </body>

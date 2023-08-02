@@ -8,6 +8,7 @@ const app = Vue.createApp({
     },
     computed: {
         whichPageComponent() {
+            /*====== toLowerCase() 轉換英文小寫 ======*/
             return `my-${this.whichPage.toLowerCase()}`;
         },
     },
@@ -57,14 +58,26 @@ app.component("my-page2", {
 app.component("my-page3", {
     template: `
     <div class="p3">
-        <h1>What's your name ?</h1>
-        <input type="text" v-model="name">
-        <p>My name is {{ name }}.</p>
+        <select v-model="inputType">
+            <option>text</option>
+            <option>radio</option>
+            <option>select</option>
+        </select>
+        <h3>{{ inputType }}</h3>
+        <div v-if="inputType === 'text'">
+            <label>Type = text</label> <input type="text">
+        </div>
+        <div v-else-if="inputType === 'radio'">
+            <label>Type = radio</label> <input type="radio" name="gender"> Boy <input type="radio" name="gender"> Girl
+        </div>
+        <div v-else-if="inputType === 'select'">
+            <label>Type = select</label> <select><option>Boy</option><option>Girl</option></select>
+        </div>
     </div>
     `,
     data() {
         return {
-            name: "",
+            inputType: "text",
         };
     },
 });

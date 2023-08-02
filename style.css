@@ -11,7 +11,8 @@ html {
 
 header {
     width: 100%;
-    background: #cbf5ce;
+    /* background: #cbf5ce; */
+    background: rgba(135, 207, 235, 0.486);
 }
 
 header ul {
@@ -30,6 +31,8 @@ header ul li {
     font-size: 20px;
     text-align: center;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
 }
 
 header ul li.active {
@@ -37,6 +40,18 @@ header ul li.active {
 }
 header ul li:hover {
     color: coral;
+}
+
+header ul li::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 100px;
+    z-index: -2;
 }
 
 h1 {
@@ -47,7 +62,8 @@ h1 {
 
 h1 mark.skyblue {
     padding: 5px 5px;
-    background: rgba(135, 207, 235, 0.486);
+    /* background: rgba(135, 207, 235, 0.486); */
+    background: #cbf5ce;
 }
 
 .p2 {
@@ -67,4 +83,20 @@ h1 mark.skyblue {
 
 .p2 h1 {
     margin: 30px auto;
+}
+
+.p3 {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.p3 select {
+    margin: 20px auto;
+    font-size: 24px;
+}
+.p3 h3 {
+    margin: 0 auto 20px;
 }
