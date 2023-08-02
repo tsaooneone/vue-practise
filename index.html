@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://unpkg.com/vue@next" defer></script>
+        <script src="app.js" defer></script>
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <ul>
+                    <li v-for="page in pages" :key="page" :class="['page-tab', {active: whichPage === page}]" @click="whichPage = page">
+                        {{ page }}
+                    </li>
+                </ul>
+            </header>
+            <!-- 寫法1 -->
+            <!-- <my-home :parent-message="message" v-if="whichPage === 'Home'"></my-home>
+            <my-page1 v-if="whichPage === 'Page1'"></my-page1>
+            <my-page2 v-if="whichPage === 'Page2'"></my-page2>
+            <my-page3 v-if="whichPage === 'Page3'"></my-page3> -->
+            
+            <!-- 寫法2 -->
+            <component :is="whichPageComponent"></component>
+        </div>
+        
+    </body>
+</html>
